@@ -1,0 +1,1 @@
+{"items":[{"key":"item_0","age":0,"access_count":1,"last_result":"hit"},{"key":"item_1","age":0,"access_count":20,"last_result":"stale"},{"key":"item_2","age":0,"access_count":12,"last_result":"hit"},{"key":"item_3","age":0,"access_count":5,"last_result":"hit"}],"step":0,"task_id":"hard"}

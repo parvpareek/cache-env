@@ -1,0 +1,16 @@
+name: cache_invalidation_env
+description: Decision-making environment for cache invalidation under uncertainty
+
+actions:
+  type: object
+  properties:
+    type:
+      type: string
+    key:
+      type: string
+
+observations:
+  type: object
+
+reward:
+  type: float
