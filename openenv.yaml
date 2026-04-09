@@ -1,6 +1,11 @@
 name: cache_invalidation_env
 description: Decision-making environment for cache invalidation under uncertainty
 
+tasks:
+  - easy
+  - medium
+  - hard
+
 actions:
   type: object
   properties:

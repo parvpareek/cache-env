@@ -8,6 +8,8 @@ from typing import List, Optional
 import requests
 from openai import OpenAI
 
+from env.grader import clamp_strict_unit_interval
+
 # Load .env from repo root so HF_TOKEN / API_BASE_URL work when you run: python inference.py
 try:
     from dotenv import load_dotenv
@@ -233,6 +235,7 @@ def run() -> None:
         success = False
         print(f"[RUN] fatal: {exc}", file=sys.stderr)
     finally:
+        episode_score = clamp_strict_unit_interval(episode_score)
         log_end(
             success=success,
             steps=steps_taken,
