@@ -1,10 +1,30 @@
 name: cache_invalidation_env
-description: Decision-making environment for cache invalidation under uncertainty
+version: "1.0.0"
+description: >
+  Decision-making environment for cache invalidation under uncertainty.
+  Three difficulty levels; each task has an episode grader (final_score on done).
 
 tasks:
-  - easy
-  - medium
-  - hard
+  - name: easy
+    description: "Fewer cache items and low volatility; easier to infer staleness from noisy observations."
+    difficulty: easy
+    max_steps: 10
+    grader: true
+    score_range: [0.0, 1.0]
+
+  - name: medium
+    description: "More items and moderate volatility; invalidation vs keep tradeoffs matter more."
+    difficulty: medium
+    max_steps: 10
+    grader: true
+    score_range: [0.0, 1.0]
+
+  - name: hard
+    description: "Most items and high volatility; staleness signal is noisy and costly mistakes are easier."
+    difficulty: hard
+    max_steps: 10
+    grader: true
+    score_range: [0.0, 1.0]
 
 actions:
   type: object
@@ -19,3 +39,9 @@ observations:
 
 reward:
   type: float
+
+endpoints:
+  reset: POST /reset
+  step: POST /step
+  state: GET /state
+  tasks: GET /tasks
